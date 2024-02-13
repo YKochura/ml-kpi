@@ -19,9 +19,9 @@ background-image: url(./figures/lec1/ml.png)
 # Сьогодні
 .larger-x[ <p class="shadow" style="line-height: 200%;"> 
 
-🎙️ Інтелект vs штучний інтелект <br>
+🎙️ Інтелект vs штучний інтелект (ШІ) <br>
 🎙️ Машинне навчання <br> 
-🎙️ Облсті застосування та успіхи ШІ <br>
+🎙️ Сфери застосування та успіхи ШІ <br>
 </p>]
 
 ---
@@ -70,39 +70,22 @@ count: false
 
 
 .smaller-x.italic[
-In the process of trying to imitate an adult human mind we are bound to think a good deal about
-the process which has brought it to the state that it is in. We may notice three components,
+Намагаючись зімітувати розум дорослої людини, ми зобов’язані добре подумати про процес, який привів його до стану, в якому він перебуває. Ми можемо помітити три компоненти,
 
-  a. The initial state of the mind, say at birth,
+  a. Початковий стан розуму, скажімо, при народженні,
 
-  b. The education to which it has been subjected,
+  b. Навчання, якому ми були піддані,
 
-  c. Other experience, not to be described as education, to which it has been subjected.
+  c. Інший досвід, який не можна назвати навчанням, якому ми були піддані.
 
-Instead of trying to produce a programme to simulate the adult mind, why not rather try to produce
-one which simulates the child’s? If this were then subjected to an appropriate course of education one
-would obtain the adult brain. Presumably the child-brain is something like a note-book as one buys
-it from the stationers. Rather little mechanism, and lots of blank sheets. (Mechanism and writing
-are from our point of view almost synonymous.) Our hope is that there is so little mechanism in
-the child-brain that something like it can be easily programmed.
+Замість того, щоб намагатися створити програму, яка моделює розум дорослої людини, чому б не спробувати створити таку, яка моделює розум дитини? Потім, якби це було піддано належному курсу навчання, можна було б отримати модель мозку дорослої людини. Ймовірно, дитячий мозок &mdash; це щось на зразок чистого зошита, який купуємо у канцтоварах. Досить маленький механізм і багато чистих аркушів. (Механізм і напис з нашої точки зору майже синоніми.) Ми сподіваємось, що в дитячому мозку настільки мало механізмів, що щось подібне можна легко запрограмувати.
+
 
 ]
 
-.pull-right[&mdash; Alan Turing, 1950]
+.pull-right[&mdash; Алан Тюрінг, 1950]
 
 .footnote[Credits: [Alan Turing](https://academic.oup.com/mind/article/LIX/236/433/986238), 1950.]
-
-???
-
-Намагаючись імітувати розум дорослої людини, ми зобов’язані багато думати про процес, який привів його до стану, в якому він перебуває. Ми можемо помітити три компоненти:
-
-a. Початковий стан розуму, скажімо, при народженні
-
-b. Освіта, якій людина була піддана,
-
-в. Інший досвід, який не можна назвати навчанням, якому він був підданий.
-
-Замість того, щоб намагатися створити програму для моделювання розуму дорослого, чому б не спробувати створити таку, яка моделює розум дитини? Якби це потім було піддано відповідному курсу освіти, можна було б отримати дорослий мозок. Імовірно, дитячий мозок — це щось на кшталт зошита, оскільки його купують у канцтоварах. Досить маленький механізм і багато чистих аркушів. (Механізм і письмо з нашої точки зору майже синоніми.) Ми сподіваємось, що в дитячому мозку настільки мало механізмів, що щось подібне можна легко запрограмувати.
 
 ---
 
@@ -163,36 +146,33 @@ class: middle
 .kol-2-3[
 
 .smaller-xx[
-- 1940—1952: Early days
-  - 1943: McCulloch & Pitts: Boolean circuit model of brain
-  - 1950: Turing's ''Computing Machinery and Intelligence''
+- .bold[1940—1952: Ранні дні]
+  - 1943: Мак-Каллок & Піттс: Булева модель нейрона
+  - 1950: Праця Тюрінга «Обчислювальні машини і розум» 
 
-- 1952–1956:  The birth of AI
-  - 1950s: Early AI programs, including Samuel's checkers program,
-Newell & Simon's Logic Theorist, Gelernter's Geometry Engine
-  - 1956: Dartmouth meeting: ''Artificial Intelligence'' adopted
+- .bold[1952–1956:  Народження ШІ]
+  - 1950s: Ранні програми ШІ, включаючи програму Семюеля для гри в шашки
+  - 1956: Дартмутський семінар: запропоновано термін ''Штучний інтелект'' 
 
-- 1956–1974: The golden years 
-  - 1958: Frank Rosenblatt invented [perceptron](https://en.wikipedia.org/wiki/Perceptron) (simple neural network)
-  - 1964: [Bobrow's program](https://en.wikipedia.org/wiki/STUDENT_(computer_program) that solves algebra word problems
-  - 1965: Robinson's complete algorithm for logical reasoning
+- 1956–1974: Золоті роки 
+  - 1958: Френк Розенблатт винайшов [перцептрон](https://en.wikipedia.org/wiki/Perceptron) (проста нейронна мережа)
+  - 1964: Програма Боброу [STUDENT] <https://en.wikipedia.org/wiki/STUDENT_(computer_program)>, яка вирішує текстові задачі з алгебри
 
-- 1974–1980: The first AI winter
+- .bold[1974–1980: Перша зима ШІ]
 
-- 1980–1987: Expert systems industry boom
-- 1987—1993: Expert systems industry busts: the second AI winter 
+- .bold[1980–1987: Бум експертних систем]
+- .bold[1987—1993: Провали експертних систем: друга зима ШІ] 
 
-- 1993–2011: Statistical approaches 
-  - Resurgence of probability, focus on uncertainty
-  - General increase in technical depth
-  - Intelligent agents
+- .bold[1993–2011: Статистичні підходи] 
+  - Відродження ймовірнісних підходів, зосередженість на невизначеності
+  - Розумні агенти
 
-- 2011–present: Deep Learning, Big Data and AI
-  - Big data, big compute, neural networks
-  - AI used in many industries
-]
+- .bold[2011– 2020: Глибоке навчання, Великі дані]
+  - Великі дані, великі обчислення, нейронні мережі
 
-]
+- .bold[2020– по теперішній час:  Ера ШІ, сильний штучний інтелект]
+  - Великі мовні моделі
+]]
 .kol-1-3[.middle.center.width-100[![](figures/lec1/aihistory2.jpg)]]
 ]
 
@@ -223,9 +203,9 @@ class: middle
 
 .center.width-50[![](figures/lec1/AndrewNG.webp)]
 
-"Just as electricity transformed almost everything 100 years ago, today I actually have a hard time thinking of an industry that I don't think AI will transform in the next several years."
+.quote["Подібно до того, як електрика змінила майже все 100 років тому, сьогодні мені важко уявити галузь, яку, на мою думку, ШІ не змінить у найближчі кілька років."]
 
-.pull-right[&mdash; Andrew Ng]
+.pull-right[&mdash; Ендрю Ин, 2017]
 
 .footnote[Credits: [Andrew Ng: Artificial Intelligence is the New Electricity](https://www.youtube.com/watch?v=21EiKfQYZXc), 2017.]
 
@@ -866,7 +846,7 @@ class: middle, black-slide
   <source src="./figures/lec1/physics-simulation.mp4" type="video/mp4">
 </video>
 
-Physics simulation (Sanchez-Gonzalez et al, 2020)
+Симуляція фізики явищ (Sanchez-Gonzalez et al, 2020)
 
 ]
 
@@ -899,7 +879,7 @@ class: middle, black-slide, center
 
 <iframe width="600" height="450" src="https://www.youtube.com/embed/gg7WjuFs8F4" frameborder="0" allowfullscreen></iframe>
 
-AI for Science (Deepmind, AlphaFold, 2020)
+ШІ для науки (Deepmind, AlphaFold, 2020)
 
 ---
 
@@ -911,15 +891,15 @@ class: middle
 
 ???
 
-A second example is the use of graph neural networks to discover new drugs.
+Використання графових нейронних мереж для відкриття нових ліків.
 
-Discovering new drugs is a complex and expensive search problem, where the goal is to find molecules that will bind to a target protein and modulate its function. Unfortunately, this problem is difficult for two reasons:
-- first, the search space is huge -- the space all possible pharmacologically active molecules is estimated to be in the order of 10^60 molecules.
-- second, the binding of a molecule to a protein is a complex process that is difficult to model. Laboratory experiments are necessary to evaluate the binding of a molecule to a protein, and these experiments are expensive and time-consuming.
+Відкриття нових ліків є складною та дорогою проблемою пошуку, метою якої є пошук молекул, які зв’яжуться з цільовим білком і модулюватимуть його функцію. На жаль, ця проблема складна з двох причин:
+-  по-перше, простір пошуку величезний - простір усіх можливих фармакологічно активних молекул оцінюється приблизно в $10^60$ молекул.
+- по-друге, зв'язування молекули з білком є складним процесом, який важко змоделювати. Лабораторні експерименти необхідні для оцінки зв’язування молекули з білком, і ці експерименти є дорогими та трудомісткими.
 
-Graph neural networks have been a breakthrough in this area, and have been able to predict the properties of molecules with high accuracy. 
+Графові нейронні мережі стали проривом у цій галузі, і вони змогли передбачити властивості молекул з високою точністю.
 
-In a sense, they can serve as a virtual laboratory that can be used to pre-screen millions of molecules in a matter of hours, thereby reducing the laboratory work to only the most promising candidates.
+У певному сенсі вони можуть слугувати віртуальною лабораторією, яку можна використовувати для попереднього скринінгу мільйонів молекул за лічені години, таким чином зводячи лабораторну роботу лише до найперспективніших кандидатів.
 
 ---
 
@@ -927,7 +907,7 @@ class: middle, center, black-slide
 
 <iframe width="600" height="450" src="https://www.youtube.com/embed/7gh6_U7Nfjs" frameborder="0" allowfullscreen></iframe>
 
-Speech synthesis and question answering (Google, 2018)
+Синтез мовлення та відповіді на питання (Google, 2018)
 
 ---
 
@@ -936,7 +916,7 @@ class: middle, center, black-slide
 
 <iframe width="600" height="450" src="https://www.youtube.com/embed/kSLJriaOumA" frameborder="0" allowfullscreen></iframe>
 
-Image generation (Karras et al, 2018)
+Генерація зображень (Karras et al, 2018)
 
 ---
 
@@ -944,7 +924,7 @@ class: middle, center, black-slide
 
 <iframe width="600" height="450" src="https://www.youtube.com/embed/qTgPSKKjfVg" frameborder="0" allowfullscreen></iframe>
 
-Image generation and AI art (OpenAI, 2022)
+Генерація зображень і мистецтво ШІ (OpenAI, 2022)
 
 ---
 
@@ -960,13 +940,18 @@ class: middle, center, black-slide
 
 <iframe width="600" height="450" src="https://www.youtube.com/embed/Zm9B-DvwOgw" frameborder="0" allowfullscreen></iframe>
 
-Write computer code (OpenAI, 2021)
+Написання комп’ютерного коду (OpenAI, 2021)
 
 ---
 
 class: middle, center, black-slide
 
-.center.width-100[![](figures/lec1/ChatGPT.png)]
+background-image: url(figures/lec1/ChatGPT.png)
+background-size: contain
+
+<br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br>
+<br><br><br>
 
 Відповісти на всі ваші запитання (OpenAI, 2022)
 
@@ -978,10 +963,9 @@ class: middle
 
 .center.circle.width-30[![](figures/lec1/bishop.jpg)]
 
-.italic["For the last forty years we have programmed computers; for the next forty years we will train them."]
+.quote["Протягом останніх сорока років ми програмували комп’ютери; протягом наступних сорока років ми будемо їх навчати."]
 
-.pull-right[Chris Bishop, 2020.]
-
+.pull-right[&mdash; Крістофер Бішоп, 2020.] 
 ???
 Крістофер Бішоп є технічним співробітником Microsoft і директором Microsoft Research AI4Science. Він також є почесним професором комп’ютерних наук Единбурзького університету та членом Дарвінівського коледжу в Кембриджі. У 2017 році він був обраний членом Королівського товариства.
 
