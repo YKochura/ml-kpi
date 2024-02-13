@@ -12,22 +12,25 @@ class: middle, center, title-slide
 
 ---
 
-# Сьогодні
 
-- Інтелект vs штучний інтелект
-- Визначення штучного інтелекту та парадигма
-- Типи машинного навчання
-- Концепція глибинного навчання
-- Приклади застосування глибинного навчання
-- Перцептрон: пряме та зворотне поширення
-- Загальні функції активації
+class:  black-slide,
+background-image: url(./figures/lec1/ml.png)
+
+# Сьогодні
+.larger-x[ <p class="shadow" style="line-height: 200%;"> 
+
+🎙️ Інтелект vs штучний інтелект <br>
+🎙️ Машинне навчання <br> 
+🎙️ Облсті застосування та успіхи ШІ <br>
+</p>]
 
 ---
+
 
 class: blue-slide, middle, center
 count: false
 
-.larger-xx[Штучний інтелект]
+.larger-xx[Інтелект <br> vs <br> Штучний інтелект]
 
 ---
 
@@ -145,6 +148,20 @@ class: middle
 
 ## Коротка історія
 
+.center.width-90[![](figures/lec1/aihistory2.jpg)] 
+
+.footnote[Джерело зображення: [Jagruti Vekariya](https://www.linkedin.com/posts/jagrutivekariya_ai-techevolution-aiprogress-activity-7126894644767956993-CTLd/).]
+
+---
+
+count: false
+class: middle
+
+## Коротка історія
+
+.grid[
+.kol-2-3[
+
 .smaller-xx[
 - 1940—1952: Early days
   - 1943: McCulloch & Pitts: Boolean circuit model of brain
@@ -174,6 +191,11 @@ Newell & Simon's Logic Theorist, Gelernter's Geometry Engine
   - Big data, big compute, neural networks
   - AI used in many industries
 ]
+
+]
+.kol-1-3[.middle.center.width-100[![](figures/lec1/aihistory2.jpg)]]
+]
+
 
 .footnote[Credits: [Wikipedia - History of artificial intelligence](https://en.wikipedia.org/wiki/History_of_artificial_intelligence#Deep_learning)]
 
@@ -213,6 +235,86 @@ class: blue-slide, middle, center
 count: false
 
 .larger-xx[Машинне навчання]
+
+---
+
+class: middle
+
+.center[
+.width-45[![](figures/lec1/cat.jpg)] &nbsp; &nbsp;
+.width-45[![](figures/lec1/dog.jpg)]
+]
+
+.question[Чи могли б ви написали комп’ютерну програму, яка розпізнає *котів* від *собак*?]
+
+---
+
+
+class: middle
+
+.center.width-60[![](figures/lec1/cat1.png)]
+
+---
+
+count: false
+class: middle
+
+.center.width-60[![](figures/lec1/cat2.png)]
+
+---
+
+count: false
+class: black-slide, middle
+background-image: url(figures/lec1/cat3.png)
+background-size: cover
+
+---
+
+count: false
+class: black-slide, middle
+
+background-image: url(figures/lec1/cat4.png)
+background-size: cover
+
+---
+
+count: false
+class: middle
+
+background-image: url(figures/lec1/cats.jpg)
+background-size: contain
+
+---
+
+count: false
+class: middle
+
+background-image: url(figures/lec1/dogs.jpeg) 
+background-size: contain
+
+---
+
+
+
+class: middle
+
+Для пошуку шаблону в даних (витягування семантичної інформації, ознак) потрібна побудова **складних моделей**, які б отримати вручну було б дуже складно.
+
+Однак, можна використати алгоритм машинного навчання, який буде **вчитись** знаходити шаблон у даних самостійно. 
+
+---
+
+class: middle
+
+.center.width-100[![](figures/lec1/catordog-flow.gif)]
+
+.center[Підхід глибокого навчання]
+
+---
+
+class: middle
+
+.center.width-100[![](figures/lec1/deepL.jpg)]
 
 ---
 
@@ -290,6 +392,8 @@ count: false
 2. Маємо достатньо даних, що iлюструють шаблон.
 ---
 
+
+
 class: middle
 
 # Типи навчання
@@ -337,6 +441,135 @@ count: false
 
 class: middle
 
+# Навчання з учителем
+## Постановка задачі
+
+
+Нехай $\mathbf{d} \sim p(\mathbf{X}, y)$ &mdash; датасет з $n$ пар прикладів вхід-вихід
+
+ $$\mathbf{d} = \\{(\mathbf{X}^{(1)}, y^{(1)}), (\mathbf{X}^{(2)}, y^{(2)}),..., (\mathbf{X}^{(n)}, y^{(n)})\\},$$
+де $\mathbf{X}^{(i)} = (x^{(i)}_1, x^{(i)}_2, ..., x^{(i)}_m)$ &mdash; вхідний вектор ознак,  $y^{(i)}$ &mdash; мітка (вихід), як правило, $y^{(i)} \in \mathbb{R}\ \text{або}\ y^{(i)} \in \mathbb{N}$.
+
+На основі цих даних ми хочемо визначити статистичну модель $$p(y|\mathbf{X}),$$ яка буде найкраще пояснювати дані.
+
+
+---
+
+class: middle
+
+# Вектор ознак
+
+- Кожен вхідний приклад $\mathbf{X} \in \mathbb{R}^m$ &mdash; вектор вхідних ознак, який складається з $m$ атрибутів або ознак.
+- Якщо дані спочатку не виражені як дійсні вектори, тоді їх потрібно підготувати та перетворити в цей формат.
+
+---
+
+# Лінійна регресія
+
+Якщо $y \in \mathbb{R}$. 
+
+.center.width-70[![](figures/lec1/lireg.png)]
+
+$$\hat y  = W \cdot X + b$$
+
+Алгоритм регресії прагне відшукати лінію чи гіперповерхню, яка найближче знаходиться до прикладів: $(\mathbf{X}^{(i)}, y^{(i)})$. Одновимірна регресія: $\mathbf{X}^{(i)} = (x^{(i)}_1)$
+
+???
+Y -- залежна змінна, і вона неперервна - наприклад, кількість продажів, ціна, вага. Це змінна, значення якої ми намагаємося передбачити. X - незалежна змінна. Ми використовуємо цю змінну для прогнозування значення Y.
+
+---
+
+courn: false
+class: middle
+
+# Лінійна регресія
+
+## Втрати
+
+$$L^{(i)}(\hat y,y)  =  \Big(\hat{y}^{(i)} -  y^{(i)} \Big)^2$$
+
+.center.width-80[![](figures/lec1/lq.png)]
+
+---
+
+courn: false
+class: middle
+
+# Лінійна регресія
+
+## Цільова функція
+
+$$J(\hat y,y)  = \frac{1}{n} \sum\_{i=1}^n L^{(i)} = \frac{1}{n} \sum\_{i=1}^n \Big(\hat{y}^{(i)} -  y^{(i)} \Big)^2$$
+.center.width-70[![](figures/lec1/liregerror.png)]
+
+Алгоритм регресії прагне відшукати лінію чи гіперповерхню, яка найближче знаходиться до прикладів: $(\mathbf{X}^{(i)}, y^{(i)})$. Одновимірна регресія: $\mathbf{X}^{(i)} = (x^{(i)}_1)$
+
+???
+Y -- залежна змінна, і вона неперервна - наприклад, кількість продажів, ціна, вага. Це змінна, значення якої ми намагаємося передбачити. X - незалежна змінна. Ми використовуємо цю змінну для прогнозування значення Y.
+
+---
+
+count: false
+class: middle
+
+# Лінійна регресія
+
+.center.width-100[![](figures/lec1/linear_regression.png)]
+
+---
+
+class: middle
+
+# Логістична регресія
+
+Якщо $y \in \{0, 1\}$.
+
+.center.width-40[![](figures/lec1/classif-cartoon.png)]
+
+$$\hat y  = \sigma(z) = \frac{1}{1 + \exp(-z)} = \frac{1}{1 + \exp(-(W \cdot X + b))}$$
+
+У разі класифікації алгоритм навчання шукає лінію (або, у загальному випадку, гіперповерхню), яка поділяє приклади різних класів.
+
+.footnote[Джерело зображення: [CS188](https://inst.eecs.berkeley.edu/~cs188/), UC Berkeley.]
+
+---
+
+class: middle
+# Логістична регресія
+
+## Втрати 
+
+$$L^{(i)}(\hat y,y)  = -  \Big[ y^{(i)} \log(\hat{y}^{(i)}) + (1 - y^{(i)}) \log(1 - \hat{y}^{(i)}) \Big]$$
+
+<br>
+
+## Цільова функція
+
+$$J(\hat y,y)  = \frac{1}{n} \sum\_{i=1}^n L^{(i)}=  - \frac{1}{n} \sum_{i=1}^n \Big[ y^{(i)} \log(\hat{y}^{(i)}) + (1 - y^{(i)}) \log(1 - \hat{y}^{(i)}) \Big]$$
+
+---
+
+class: middle
+
+# Класифікація vs  регресія
+
+
+.grid[
+.kol-1-2[
+.center.width-95[![](figures/lec1/classification.png)]
+.center[Класифікація]
+]
+
+.kol-1-2[
+.center.width-95[![](figures/lec1/regression.png)]
+.center[Регресія]
+]]
+
+---
+
+
+class: middle
+
 # Як вчиться людина?
 
 - Ми та інші розумні істоти, вчимось завдяки **взаємодії із своїм оточенням**
@@ -353,6 +586,7 @@ class: middle
 Нейронні мережі, прекрасна біологічно натхненна парадигма програмування, яка дозволяє комп’ютеру навчатися на основі даних спостережень
 
 ---
+
 
 class: middle
 
@@ -411,6 +645,16 @@ class: middle
 Собака-вівця чи швабра?
 ]
 
+---
+
+class: middle
+
+.center[
+.width-70[![](figures/lec1/dog2.jpg)]
+
+Кекс чи собака?
+]
+
 
 ---
 
@@ -455,58 +699,13 @@ class: middle, center
 
 ---
 
-class: middle, center
 
-# Як навчить машин бачити?
-
----
-
-class: middle
-
-.center.width-60[![](figures/lec1/cat1.png)]
-
----
-
-count: false
-class: black-slide
-
-.center.width-60[![](figures/lec1/cat2.png)]
-
----
-
-count: false
-class: black-slide, middle
-
-.center.width-80[![](figures/lec1/cat3.png)]
-
----
-
-count: false
-class: black-slide, middle
-
-.center.width-80[![](figures/lec1/cat4.png)]
-
----
-
-class: middle
-
-Для пошуку шаблону в даних (витягування семантичної інформації, ознак) потрібна побудова **складних моделей**, які б отримати вручну було б дуже складно.
-
-Однак, можна написати програму, яка буде **вчитись** знаходити шаблон в даних самостійно. 
-
----
-
-class: middle
-
-.center.width-100[![](figures/lec1/deepL.jpg)]
-
----
 
 class: middle
 
 # Що входить до задачі машинного навчання?
 
-- Постановка проблеми + дані
+- Постановка проблеми + збір даних
 - Навчання моделі
 - Визначення функції втрат
 - Вибір алгоритму оптимізації
@@ -594,7 +793,17 @@ $$Err = Bias^2 + Variance + Irreducible error$$
 # Інтуїція
 
 <br><br>
-.center.width-55[![](figures/lec1/bias-and-variance.jpg)]
+.center.width-60[![](figures/lec1/bias-and-variance.jpg)]
+
+---
+
+
+# Інтуїція
+
+## Великий зсув
+
+<br><br>
+.center.width-70[![](figures/lec1/hbias.png)]
 
 ---
 
@@ -609,47 +818,46 @@ class: middle, center, black-slide
 
 <iframe width="600" height="450" src="https://www.youtube.com/embed/5kpsZoKjPgQ" frameborder="0" allowfullscreen></iframe>
 
-Object detection, pose estimation, segmentation (2019)
+Виявлення об'єктів, визначення положення людини, сегментація (2019)
 
 ---
-
-class: middle, center, black-slide
-
-<iframe width="600" height="450" src="https://www.youtube.com/embed/V1eYniJ0Rnk" frameborder="0" allowfullscreen></iframe>
-
-Reinforcement learning (Mnih et al, 2014)
-
----
-
-
-class: middle, center, black-slide
-
-<iframe width="600" height="450" src="https://www.youtube.com/embed/qhUvQiKec2U" frameborder="0" allowfullscreen></iframe>
-
-Autonomous cars (NVIDIA, 2016)
-
----
-
-class: middle, center, black-slide
-
-<iframe width="600" height="450" src="https://www.youtube.com/embed/tlThdr3O5Qo" frameborder="0" allowfullscreen></iframe>
-
-Autopilot (Tesla, 2019)
-
-???
-
-A full build of Autopilot neural networks involves 48 networks that take 70,000 GPU hours to train 🔥. Together, they output 1,000 distinct tensors (predictions) at each timestep.
-
----
-
 
 class: middle, center, black-slide
 
 <iframe width="600" height="450" src="https://www.youtube.com/embed/hA_-MkU0Nfw" frameborder="0" allowfullscreen></iframe>
 
-Autonomous cars (Waymo, 2022)
+Створення автономних автомобілів (Waymo, 2022)
 
 ---
+
+class: middle, black-slide, center
+
+<iframe width="600" height="450" src="https://www.youtube.com/embed/zrcxLZmOyNA" frameborder="0" allowfullscreen></iframe>
+
+Рушій для розвитку чистої енергії (NVIDIA, 2023)
+
+---
+
+class: middle, black-slide, center
+
+<iframe width="600" height="450" src="https://www.youtube.com/embed/AbdVsi1VjQY" frameborder="0" allowfullscreen></iframe>
+
+Як ШІ розвиває медицину (Google, 2023)
+
+---
+
+class: middle, center
+
+.center.width-50[![](./figures/lec1/medpalm.gif)]
+
+.center[Med-PaLM 2 (Google) &mdash; це велика мовна модель, налаштована для сфери медицини. Досягає 85%+ точності для запитань у стилі експертизи медичного професійного, три-етапного іспиту (USMLE).] 
+
+???
+
+Що відрізняє ці системи штучного інтелекту  так це те, що вони пропонують новий інтерфейс. ШІ більше не вбудований в інструменти, а знаходять у  прямому контакті з нами, людьми.  Наприклад, Med-PaLM 2 — це велика мовна модель, налаштована для сфери медицини. З ним можна взаємодіяти за допомогою природної мови, ніби ви розмовляєте з медичним експертом. Вам не потрібно знати, як писати код або як визначати ці математичні моделі. Ви просто задаєте запитання, і ця модель надасть вам відповідь.
+
+---
+
 
 class: middle, black-slide
 
@@ -664,11 +872,54 @@ Physics simulation (Sanchez-Gonzalez et al, 2020)
 
 ---
 
+
+class: middle
+
+## AlphaFold: Від послідовності амінокислот до 3D структури
+
+.grid[
+.kol-2-3.center.width-100[![](./figures/lec1/alphafold-nature.png)]
+.kol-1-3.center.width-100[![](./figures/lec1/alphafold-prediction.gif)]
+]
+
+???
+
+ AlphaFold &mdash; нейронна мережа, заснована на архітектурі трансформер, яка може передбачити тривимірну структуру білка за його амінокислотною послідовністю.
+
+Ця проблема важлива, оскільки тривимірна структура білка визначає його функцію, а розуміння функції білка є ключовим для розуміння біології та розробки нових ліків.
+
+
+Однак експериментальне визначення 3D-структури білка є складним і дорогим процесом, оскільки лише для визначення однієї структури потрібно кілька місяців.
+
+AlphaFold став проривом у цій галузі та зміг передбачити тривимірну структуру білків з високою точністю всього за пару хвилин для найдовших послідовностей.
+
+---
+
 class: middle, black-slide, center
 
 <iframe width="600" height="450" src="https://www.youtube.com/embed/gg7WjuFs8F4" frameborder="0" allowfullscreen></iframe>
 
 AI for Science (Deepmind, AlphaFold, 2020)
+
+---
+
+class: middle
+
+## Відкриття ліків за допомогою графових нейронних мереж
+
+.center.width-80[![](./figures/lec1/cell.png)]
+
+???
+
+A second example is the use of graph neural networks to discover new drugs.
+
+Discovering new drugs is a complex and expensive search problem, where the goal is to find molecules that will bind to a target protein and modulate its function. Unfortunately, this problem is difficult for two reasons:
+- first, the search space is huge -- the space all possible pharmacologically active molecules is estimated to be in the order of 10^60 molecules.
+- second, the binding of a molecule to a protein is a complex process that is difficult to model. Laboratory experiments are necessary to evaluate the binding of a molecule to a protein, and these experiments are expensive and time-consuming.
+
+Graph neural networks have been a breakthrough in this area, and have been able to predict the properties of molecules with high accuracy. 
+
+In a sense, they can serve as a virtual laboratory that can be used to pre-screen millions of molecules in a matter of hours, thereby reducing the laboratory work to only the most promising candidates.
 
 ---
 
@@ -721,54 +972,6 @@ class: middle, center, black-slide
 
 ---
 
-class: middle, center
-
-.width-70[![](figures/lec1/turing-award.png)]
-
-.italic[ Асоціацією обчислювальної техніки (ACM) нагороджено в 2018 році премією Тюрінга таких науковців: .bold[Yann LeCun], .bold[Geoffrey Hinton], .bold[Yoshua Bengio]  за концептуальні та інженерні прориви, які зробли в глибинних нейронних мережах.]
-
----
-
-# Чому DL працює?
-
-.center.grid[
-.kol-1-2[
-Алгоритми (старі та нові)<br><br>
-.width-90[![](figures/lec1/skip-connection.png)]
-]
-.center.kol-1-2[
-Зростає кількість даних<br><br>
-.width-50[![](figures/lec1/imagenet.jpeg)]
-]
-]
-
-.center.grid[
-.kol-1-2[
-Програмне забезпечення<br>
-.width-90[![](figures/lec1/software.png)]
-]
-.kol-1-2[
-Більш швидкі обчислювальні машини <br><br>
-.width-50[![](figures/lec1/titan.jpg)]
-]
-]
-
-???
-
-Успіх глибинного навчання є багатофакторним ...
-
----
-
-class: middle
-
-## DL як архітектурна мова
-
-.width-100[![](figures/lec1/lego-composition.png)]
-
-.footnote[Image source: [http://chelseamarzean.com/post-the-atomic-workflow/](http://chelseamarzean.com/post-the-atomic-workflow/), 2016.]
-
----
-
 
 
 class: middle
@@ -784,505 +987,6 @@ class: middle
 
 ---
 
-class: middle
-
-# Виклики ШІ
-
-
-Основним викликом штучного інтелекту та машинного навчання є прийняття правильних рішень в умовах **невизначеності**
-
----
-
-class: blue-slide, middle, center
-count: false
-
-.larger-xx[Перцептрон]
-
-Одношарова нейронна мережа
-
-Перцептрон vs Логістична регресія
-
----
-
-# Перцептрон
-
-Перцептрон (Rosenblatt, 1958)
-
-$$g(z) = \begin{cases}
-   1 &\text{if } z =\sum_i w_i x_i + b \geq 0  \\\\
-   0 &\text{otherwise}
-\end{cases}$$
-
-Ця модель спочатку була мотивована біологією, де $w_i$ &mdash; це синаптичні ваги для вхідних сигналів $x_i$ та  $g$ активації.
-.center.width-65[![](figures/lec1/perceptron.jpg)]
-
-.footnote[Джерело: Frank Rosenblatt, [Mark I Perceptron operators' manual](https://apps.dtic.mil/sti/pdfs/AD0236965.pdf), 1960.]
-
-???
-
-У листопаді 1958 року Френк Розенблатт винайшов персептрон, або Mark I, у Корнельському університеті. Завершений у 1960 році, це був перший комп’ютер, який міг вивчати нові навички методом проб і помилок, використовуючи тип нейронної мережі, яка симулювала процеси мислення людини.
-
----
-
-class: middle
-
-.center[
-.width-70[![](figures/lec1/neuron.png)]
-]
-
-.smaller-xx[
-$$
-\begin{aligned}
-\mathbf{X} = \begin{bmatrix}
-x\_1  \\\\
-x\_2  \\\\
-\vdots \\\\
-x\_m
-\end{bmatrix} 
-&&
-\mathbf{W} = \begin{bmatrix}
-w\_1  \\\\
-w\_2  \\\\
-\vdots \\\\
-w\_m
-\end{bmatrix}
-&& 
-\mathbf{X}^T = \begin{bmatrix}
-x\_1 & x\_2 & \cdots & x\_m
-\end{bmatrix} 
-\end{aligned}$$
-
-
-$$\boxed{\begin{aligned}z &= \sum\_{n=1}^{m} w\_n x\_n + b = \mathbf{X}^T \cdot \mathbf{W} + b = \mathbf{W}^T \cdot \mathbf{X} + b \\\\
-\hat y &= g(z) \\\\
-\mathcal{L}(\hat y, y) &= - \frac{1}{n} \sum\_{i=1}^{n} \big(y^{(i)} \log(\hat y^{(i)}) + (1- y^{(i)}) \log(1 -\hat y^{(i)}) \big)
-\end{aligned}}$$
-
-]
-
----
-
-class: middle
-
-.center[
-.width-80[![](figures/lec1/neuron.png)]
-]
-
-.smaller-xx[
-
-.center[*Пряме поширення*]
-
-$$\boxed{\begin{aligned}z &= \sum\_{n=1}^{m} w\_n x\_n + b = \mathbf{X}^T \cdot \mathbf{W} + b = \mathbf{W}^T \cdot \mathbf{X} + b \\\\
-\hat y &= g(z) \\\\
-\mathcal{L}(\hat y, y) &= - \frac{1}{n} \sum\_{i=1}^{n} \big(y^{(i)} \log(\hat y^{(i)}) + (1- y^{(i)}) \log(1 -\hat y^{(i)}) \big)
-\end{aligned}}$$
-
-]
-
----
-
-
-class: middle
-
-## Приклад
-
-Припустимо $m = 3$
-
-$$
-\begin{aligned}
-\mathbf{X} = \begin{bmatrix}
-x\_1  \\\\
-x\_2  \\\\
-x\_3
-\end{bmatrix} = \begin{bmatrix}
--0.1  \\\\
-0.7  \\\\
-0.5
-\end{bmatrix} 
-&&
-\mathbf{W} = \begin{bmatrix}
-w\_1  \\\\
-w\_2  \\\\
-w\_3
-\end{bmatrix} =
-\begin{bmatrix}
-1  \\\\
--2  \\\\
-2
-\end{bmatrix}
-&&
-b = 0.8
-\end{aligned}$$
-
-$$\boxed{\begin{aligned}
-z = \sum_{n=1}^{3} w_n x_n + b &= w_1 x_1 + w_2 x_2 + w_3 x_3 + b = \\\\
-&= 1 \cdot -0.1 + -2 \cdot 0.7 + 2 \cdot 0.5 + 0.8 = 0.3
-\end{aligned}}$$
-
-$$\boxed{\begin{aligned}
-z = \mathbf{X}^T \cdot \mathbf{W} + b &= \begin{bmatrix}
-x\_1 & x\_2 &  x\_3 
-\end{bmatrix} \begin{bmatrix}
-w\_1  \\\\
-w\_2  \\\\
-w\_3
-\end{bmatrix} + b = \\\\
-&= w_1 x_1 + w_2 x_2 + w_3 x_3 + b = 0.3
-\end{aligned}}$$
-
-$$\hat y  = g(z) = g(\mathbf{X}^T \cdot \mathbf{W} + b) = \frac{1}{1 + \exp(-z)} = \frac{1}{1 + \exp(-0.3)} \approx 0.57 $$
-
----
-
-
-class: blue-slide, middle, center
-count: false
-
-.larger-xx[Одновимірний градієнтний спуск]
-
----
-
-
-class: middle
-
-## Одновимірний градієнтний спуск
-.smaller-x[
-
-Розглянемо деяку неперервну, диференційовану  функцію $f: \mathbb{R} \rightarrow \mathbb{R}$. Розклавши в ряд Тейлора, ми отримуємо:
-
-$$f(x + \varepsilon) = f(x) + \varepsilon f^{'}(x) + \mathcal{O}(\varepsilon^2)$$
-
-Для простоти давайте виберемо фіксований розмір кроку $\alpha > 0$ та оберемо $\varepsilon = -\alpha f^{'}(x)$. Підставивши це у попередній вираз:
-
-$$f(x -\alpha f^{'}(x)) = f(x) - \alpha f^{'2}(x)  + \mathcal{O}(\alpha^2 f^{'2}(x))$$
-
-Якщо похідна $f^{'}(x) \neq 0$ не зникає, ми робимо прогрес, оскільки $\alpha f^{'2}(x) > 0$. Крім того, ми завжди можемо вибрати $\alpha$ досить малим, щоб вирази вищого порядку занулити. Тому ми приходимо до
-
-$$f(x -\alpha f^{'}(x)) \lessapprox f(x)$$
-
-Це означає, що якщо ми використовуємо:
-
-$$x \leftarrow x -\alpha f^{'}(x)$$
-
-для ітерації по $x$, значення функції $f(x)$  може зменшитись. 
-]
-
-???
-Gradient descent in one dimension is an excellent example to explain why the gradient descent algorithm may reduce the value of the objective function.
-
-The Taylor series is used to describe what the function looks like in the neighborhood of some poin $x$.
-
-That is, in first-order approximation $f(x + \varepsilon)$  is given by the function value $f(x)$ and the first derivative $f^{'}(x)$ at $x$. It is not unreasonable to assume that for small $\varepsilon$ moving in the direction of the negative gradient will decrease $f$. 
-
-Therefore, in gradient descent we first choose an initial value $x$ and a constant $\alpha > 0$ and then use them to continuously iterate $x$ until the stop condition is reached, for example, when the magnitude of the gradient $|f^{'}(x)|$ is small enough or the number of iterations has reached a certain value.
-
----
-
-class: middle
-
-.center[
-.width-80[![](figures/lec1/gdC.png)]
-]
-
-???
-
-For simplicity we choose the objective function $f(x) = x^2$ to illustrate how to implement gradient descent. Although we know that $x = 0$ is the solution to minimize $f(x)$, we still use this simple function to observe how $x$ changes.
-
----
-
-class: middle
-
-Хід оптимізації за значеннями $x$ 
-
-.center[
-.width-80[![](figures/lec1/gd025.png)]
-]
-
----
-
-class: middle
-
-Хід оптимізації за значеннями $x$ 
-
-.center[
-.width-80[![](figures/lec1/gd006.png)]
-]
-
-???
-If we use a learning rate that is too small, it will cause $x$ to update very slowly, requiring more iterations to get a better solution.
-
----
-
-lass: middle
-
-Хід оптимізації за значеннями $x$ 
-
-.center[
-.width-80[![](figures/lec1/gd1.1.png)]
-]
-
-???
-if we use an excessively high learning rate, $|\alpha f^{'}(x)|$ might be too large for the first-order Taylor expansion formula. That is, the term $\mathcal{O}(\alpha^2 f^{'2}(x))$ might become significant. In this case, we cannot guarantee that the iteration of $x$ will be able to lower the value of $f(x)$.
-
----
-
-class: blue-slide, middle, center
-count: false
-
-.larger-xx[Перцептрон: Зворотне поширення]
-
----
-
-class: middle
-
-У позначеннях Лейбніца **правило ланцюжка** стверджує, що
-$$
-\begin{aligned}
-\frac{\partial \ell}{\partial \theta\_i} &= \sum\_{k \in \text{parents}(\ell)} \frac{\partial \ell}{\partial u\_k} \underbrace{\frac{\partial u\_k}{\partial \theta\_i}}\_{\text{recursive case}}
-\end{aligned}$$
-
----
-
-class: middle
-
-## Зворотне поширення
-
-- Оскільки нейронна мережа є **композицією диференційованих функцій**, загальні похідні втрат можна оцінити зворотно, застосовуючи рекурсивно правило ланцюжка до її обчислювального графу.
-- Реалізація цієї процедури називається зворотним *автоматичним диференціюванням* або **зворотним поширенням**.
-
----
-
-class: middle
-
-
-
-.smaller-xx[
-
-.center[*Пряме поширення*]
-
-$$\boxed{\begin{aligned}z &= \sum\_{n=1}^{m} w\_n x\_n + b = \mathbf{X}^T \cdot \mathbf{W} + b = \mathbf{W}^T \cdot \mathbf{X} + b \\\\
-\hat y &= g(z) = \sigma(z) = \frac{1}{1 + \exp(-z)} \\\\
-\mathcal{L}(\hat y, y) &= - \frac{1}{n} \sum\_{i=1}^{n} \big(y^{(i)} \log(\hat y^{(i)}) + (1- y^{(i)}) \log(1 -\hat y^{(i)}) \big)
-\end{aligned}}$$
-
-
-.grid[
-.kol-2-3[
-
-.center[*Зворотне поширення*]
-
-$$\boxed{\begin{aligned}
-\frac{\partial \mathcal{L}(\hat y, y)}{\partial \hat y} &= -\frac{y}{\hat y} + \frac{1- y}{1 - \hat y} \\\\[18pt]
-\frac{\partial \mathcal{L}(\hat y, y)}{\partial z} &= \frac{\partial \mathcal{L}(\hat y, y)}{\partial \hat y} \frac{\partial \hat y}{\partial z} = \hat y - y \\\\[18pt]
-\frac{\partial \mathcal{L}(\hat y, y)}{\partial \mathbf{W}} &= \frac{\partial \mathcal{L}(\hat y, y)}{\partial \hat y} \frac{\partial \hat y}{\partial z} \frac{\partial z}{\partial \mathbf{W}} = \mathbf{X}^T \cdot (\hat y - y) \\\\[18pt]
-\frac{\partial \mathcal{L}(\hat y, y)}{\partial b} &=  \frac{\partial \mathcal{L}(\hat y, y)}{\partial \hat y} \frac{\partial \hat y}{\partial z} \frac{\partial z}{\partial b} = \hat y - y
-\end{aligned}}$$
-]
-
-.kol-1-3[
-.center[*Оновлення параметрів*]
-
-$$\boxed{\begin{aligned}
-\mathbf{W} &= \mathbf{W} - \alpha \frac{\partial \mathcal{L}(\hat y, y)}{\partial \mathbf{W}} \\\\[18pt]
-b &= b - \alpha \frac{\partial \mathcal{L}(\hat y, y)}{\partial b}
-\end{aligned}}$$
-]]
-]
-
----
-
-class: blue-slide, middle, center
-count: false
-
-.larger-xx[Персептрон з багатьма виходами]
-
----
-
-class: middle
-
-# Multi Output Perceptron
-
-.smaller-x[Оскільки всі входи щільно з’єднані з усіма виходами, ці шари називаються *Dense*]
-
-.center[
-.width-70[![](figures/lec1/multiOuptup.png)]
-]
-
-$$z\_j = \sum\_{n=1}^{m} w\_{j, n} x\_n  + b\_j$$
-
----
-
-class: middle
-
-## Example
-
-.center[
-.width-50[![](figures/lec1/multiOuptup.png)]
-]
-.smaller-xx[
-$$\begin{aligned}
-\mathbf{X}^{m \times 1} = \begin{bmatrix}
-x\_1  \\\\
-x\_2  \\\\
-\vdots \\\\
-x\_m
-\end{bmatrix} 
-&&
-\mathbf{W}^{3 \times m} = \begin{bmatrix}
-w\_{11} & w\_{12} &  \cdots & w\_{1m} \\\\
-w\_{21} & w\_{22} & \cdots & w\_{2m} \\\\
-w\_{31} & w\_{32} & \cdots & w\_{3m}
-\end{bmatrix}
-&& 
-\mathbf{b}^{3 \times 1} = \begin{bmatrix}
-b\_1 \\\\
-b\_2 \\\\
-b\_3
-\end{bmatrix}
-\end{aligned}$$
-
-$$\boxed{\begin{aligned}
-\mathbf{z} =  \mathbf{W} \cdot \mathbf{X} + \mathbf{b} 
-&= \begin{bmatrix}
-w\_{11} & w\_{12} &  \cdots & w\_{1m} \\\\
-w\_{21} & w\_{22} & \cdots & w\_{2m} \\\\
-w\_{31} & w\_{32} & \cdots & w\_{3m}
-\end{bmatrix} \cdot
-\begin{bmatrix}
-x\_1  \\\\
-x\_2  \\\\
-\vdots \\\\
-x\_m
-\end{bmatrix} + 
-\begin{bmatrix}
-b\_1 \\\\
-b\_2 \\\\
-b\_3
-\end{bmatrix} = \\\\
-&= 
-\begin{bmatrix}
-w\_{11} x\_1 + w\_{12} x\_2 +  \cdots + w\_{1m} x\_m + b\_1 \\\\
-w\_{21} x\_1 + w\_{22} x\_2 +  \cdots + w\_{2m} x\_m + b\_2 \\\\
-w\_{31} x\_1 + w\_{32} x\_2 +  \cdots + w\_{3m} x\_m + b\_3 
-\end{bmatrix} = \begin{bmatrix}
-z\_1 \\\\
-z\_2 \\\\
-z\_3
-\end{bmatrix}
-\end{aligned}}$$
-
-]
-
----
-
-
-class: middle
-
-.center[
-.width-100[![](figures/lec1/dense.png)]
-]
-
-.footnote[Slide source: [MIT 6.S191](http://introtodeeplearning.com/)]
-
----
-
-class: middle
-
-.smaller-x[Оскільки всі входи щільно з’єднані з усіма виходами, ці шари називаються *Dense*]
-
-.center[
-.width-100[![](figures/lec1/multiOuptupTF.png)]
-]
-
-$$z\_j = \sum\_{n=1}^{m} w\_{j, n} x\_n  + b\_j$$
-
----
-
-class: blue-slide, middle, center
-count: false
-
-.larger-xx[Багатошаровий перцептрон]
-
----
-
-class: middle
-
-# Багатошаровий перцептрон
-
-.center[
-.width-100[![](figures/lec1/2layer.png)]
-]
-
----
-
-class: middle
-
-# Мережа з одним прихованим шаром
-
-.center[
-.width-100[![](figures/lec1/twoCode.png)]
-]
-
----
-
-class: middle
-
-## Мережа з одним прихованим шаром
-.center[
-.width-60[![](figures/lec1/2layer.png)]
-]
-
-.smaller-xx[
-$$\begin{aligned}
-\mathbf{X} = \begin{bmatrix}
-x\_1  \\\\
-x\_2  \\\\
-x\_3
-\end{bmatrix} 
-&&
-\mathbf{W}^{[1]} = \begin{bmatrix}
-w\_{11} & w\_{12} &  w\_{13} \\\\
-w\_{21} & w\_{22} &  w\_{23} \\\\
-w\_{31} & w\_{32} &  w\_{33} \\\\
-w\_{41} & w\_{42} &  w\_{43}
-\end{bmatrix}
-&& 
-\mathbf{b}^{[1]} = \begin{bmatrix}
-b\_1 \\\\
-b\_2 \\\\
-b\_3 \\\\
-b\_4
-\end{bmatrix}
-&&
-\mathbf{W}^{[2]} = \begin{bmatrix}
-w\_{1} & w\_{2} &  w\_{3} & w\_{4} 
-\end{bmatrix}
-&& 
-b^{[2]} = b
-\end{aligned}$$
-
-
-$$\boxed{\begin{aligned}
-\mathbf{z}^{[1]} &= \mathbf{W}^{[1]} \cdot \mathbf{X} + \mathbf{b}^{[1]} \\\\
-\mathbf{a}^{[1]} &= g^{[1]}(\mathbf{z}^{[1]}) \\\\
-z^{[2]} &= \mathbf{W}^{[2]} \cdot \mathbf{a}^{[1]} + b^{[2]} \\\\
-\hat y &= a^{[2]} = g^{[2]}(z^{[2]})
-\end{aligned}}$$
-]
-
----
-
-
-class: middle
-
-# Глибинна нейронна мережа
-
-.center[
-.width-100[![](figures/lec1/MLP2.png)]
-]
-
----
-
 
 class: end-slide, center
 count: false
@@ -1295,4 +999,4 @@ count: false
 
 # Література
 
-- LeCun, Y., Bengio, Y., & Hinton, G. (2015). Deep learning. nature, 521(7553), 436-444.
+- Andriy Burkov (2020). [Machine Learning Engineering](http://www.mlebook.com/wiki/doku.php?id=start). Chapter 1: Introduction.
