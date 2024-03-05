@@ -225,7 +225,7 @@ class: middle
 .width-45[![](figures/lec1/dog.jpg)]
 ]
 
-.question[Чи могли б ви написали комп’ютерну програму, яка розпізнає *котів* від *собак*?]
+.question[Чи могли б ви написати комп’ютерну програму, яка розпізнає *котів* від *собак*?]
 
 ---
 
@@ -790,7 +790,7 @@ $$Err = Bias^2 + Variance + Irreducible error$$
 class: blue-slide, middle, center
 count: false
 
-.larger-xx[Облсті застосування та успіхи ШІ]
+.larger-xx[Сфери застосування та успіхи ШІ]
 
 ---
 
