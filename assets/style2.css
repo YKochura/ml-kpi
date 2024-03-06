@@ -1,12 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,900);
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,900);
 
 body {
-/*    font-family:  'Lato', 'Avenir Next', 'Avenir', 'Trebuchet MS', 'Segoe UI', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";*/
-    font-family:  'Roboto', 'Segoe UI', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-weight: 300;
-    color: #354046; /*  #455a64; */
-    line-height: 1.5;
+    font-family:  'Lato', 'Avenir Next', 'Avenir', 'Trebuchet MS', 'Segoe UI', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #455a64; /*  #354046; */
+    line-height: 1.4;
     font-size: 11pt;
     word-wrap: break-word;
 }
@@ -24,7 +21,6 @@ body {
 }
 
 .remark-slide-content h1 {
-    font-family: Trebuchet MS;
     font-weight: bold;
     font-size: 2.25em;
     margin: 0 0 .5em 0;
@@ -32,7 +28,6 @@ body {
 }
 
 .remark-slide-content h2 {
-    font-family: Trebuchet MS;;
     font-size: 1.1em;
     font-weight: bold;
     margin: 0 0 .5em 0;
@@ -47,10 +42,6 @@ body {
 .remark-slide-number {
     font-size: 0.5em;
     bottom: 2em;
-}
-
-.remark-slide-scaler {
-    box-shadow: 0 0 20px #ccc; 
 }
 
 
@@ -131,6 +122,13 @@ strong {
 
 .larger-xx {
     font-size: 44pt;
+}
+
+.larger-xxx {
+    font-size: 54pt;
+}
+.larger-xxxx {
+    font-size: 94pt;
 }
 
 .katex {

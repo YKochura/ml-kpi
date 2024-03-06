@@ -685,15 +685,40 @@ $$\begin{aligned}
 &= \underbrace{R(f\_B|x)}\_{\text{noise}(x)} + \underbrace{(f\_B(x) - \mathbb{E}\_\mathbf{d}\left[ f\_\*^\mathbf{d}(x) \right] )^2}\_{\text{bias}^2(x)}  + \underbrace{\mathbb{E}\_\mathbf{d}\left[ ( \mathbb{E}\_\mathbf{d}\left[ f\_\*^\mathbf{d}(x) \right] - f\_\*^\mathbf{d}(x))^2 \right]}\_{\text{var}(x)}
 \end{aligned}$$
 
-Цей запис відомий як компроміс **зміщення-дисперсія**.
+Цей запис відомий як компроміс **зсуву-дисперсії**.
+
+- Доданок шуму кількісно визначає частину очікуваного ризику, яку неможливо зменшити.
+- Доданок зсуву визначає розбіжність між середньою моделлю та моделлю Байєса.
+- Доданок дисперсії визначає мінливість прогнозів.
 
 ---
 
 class: middle
 
-## Інтуіція
+## Компроміс зсуву та дисперсії
 
-.center[![](figures/lec2/bias-and-variance.jpg)]
+- Зменшення потужності $\mathcal{F}$ призводить до того, що $f\_\*^\mathbf{d}$ починає  у середньому гірше відповідати даним, що збільшує зсув.
+- Збільшення потужності $\mathcal{F}$ призводить до того, що $f\_\*^\mathbf{d}$ сильно пристосовується до навчальних даних, що збільшує дисперсію.
+
+
+---
+
+class: middle
+
+## Інтуїція
+
+.center.width-60[![](figures/lec2/bias-and-variance.webp)]
+
+---
+
+class: black-slide,
+coutn: false
+
+background-image: url(figures/lec2/bias-and-variance2.webp)
+background-size: contain
+
+???
+Джерело [Cristiane Fragata](https://cristianefragata.medium.com/machine-learning-bias-and-variance-26b6ee572af)
 
 ---
 
@@ -701,7 +726,7 @@ class: middle
 class: blue-slide, middle, center
 count: false
 
-.larger-xx[[Демо]()]
+.larger-xx[[Демо](https://colab.research.google.com/github/YKochura/ml-kpi/blob/main/code/lecture2_plots.ipynb)]
 
 ---
 
