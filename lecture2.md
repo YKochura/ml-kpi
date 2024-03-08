@@ -188,7 +188,7 @@ class: middle, center
 
 ![](figures/lec2/regression.png)
 
-Регресія намагається оцінити в взаємозв'язок між скалярною (зазвичай неперервною) залежною змінною
+Регресія намагається оцінити взаємозв'язок між скалярною (зазвичай неперервною) залежною змінною
 та однією або кількома незалежними змінними.
 
 Приклад: [Прогнозування цін на житло](https://towardsdatascience.com/predicting-house-prices-with-linear-regression-machine-learning-from-scratch-part-ii-47a0238aeac1)
