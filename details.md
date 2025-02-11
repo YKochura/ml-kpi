@@ -2,7 +2,7 @@ class: middle, center, title-slide
 
 # Машинне навчання
 
-Весна, 2024
+Весна, 2025
 
 <br><br>
 Кочура Юрій Петрович<br>
@@ -42,19 +42,11 @@ count: false
 # Опис
 Цей курс познайомить Вас з фундаментальними техніками та алгоритмами машинного навчання та дозволить отримати практичний досвiд:
   - .inactive[Використання базових методiв (лiнiйна регресiя, логiстична регресiя, SVM, дерево прийняття рiшень, PCA, …)]
-  - Тренування моделей (iнiцiалiзацiя, оптимiзацiя, регуляризацiя, вибiр методу та метрик оцiнки)
+  - Обробка та підготовка даних (збiр та анотацiя даних, візуалізація даних, подiл датасету, збiльшення даних, аналiз помилок)
 
 ---
 
-class: middle
-count: false 
-# Опис
-Цей курс познайомить Вас з фундаментальними техніками та алгоритмами машинного навчання та дозволить отримати практичний досвiд:
-  - .inactive[Використання базових методiв (лiнiйна регресiя, логiстична регресiя, SVM, дерево прийняття рiшень, PCA, …)]
-  - .inactive[Тренування моделей (iнiцiалiзацiя, оптимiзацiя, регуляризацiя, вибiр методу та метрик оцiнки)]
-  - Управлiння проєктами (збiр та анотацiя даних, подiл датасету, збiльшення даних, аналiз помилок)
 
----
 
 class: middle 
 
@@ -108,7 +100,7 @@ count: false
 class: middle 
 # Заняття
 
-- Лекції та практики в асинхронному режимі онлайн 
+- *Лекції* та *практики* будуть онлайн у змішаному форматі
 - Семінар в синхронному режимі онлайн на платформі .bold[*BigBlueButton*]:<br>  [https://bbb.comsys.kpi.ua/rooms/yur-olk-sfq-1dv/join](https://bbb.comsys.kpi.ua/rooms/yur-olk-sfq-1dv/join)
 
 .center.width-100[![](figures/details/bbb.png)]
@@ -124,17 +116,10 @@ class: middle
 - Задавайте питання, які Вас турбують
 - Не соромтесь!
 
-.grid[
-.kol-1-2[
-.center.width-70[![](figures/details/telegram-с.png)]
-.center.smaller-x[Оголошення]
-]
 
-.kol-1-2[
-.center.width-70[![](figures/details/telegram.png)]
+.center.width-40[![](figures/details/telegram.png)]
 .center.smaller-x[Оголошення + обговорення]
-]
-]
+
 
 ---
 
@@ -152,7 +137,7 @@ class: middle
 # Вебсторінка
 
 
-Усі навчальні матеріали будуть розміщуватись на цій вебсторінці:<br>  [https://courses-cs-kpi.github.io/mld-23fall/](https://courses-cs-kpi.github.io/mld-23fall/)
+Усі навчальні матеріали будуть розміщуватись на цій вебсторінці:<br>  [https://courses-cs-kpi.github.io/ml-25sp/](https://courses-cs-kpi.github.io/ml-25sp/)
 
 .center.width-80[![](figures/details/web.png)]
 
@@ -175,7 +160,7 @@ class: middle
 ]
 
 .kol-1-3[
-[.center.width-95[![](figures/details/dml2.png)]](https://github.com/dml-book/dml/releases/download/v0.1.1/main.pdf)
+[.center.width-95[![](figures/details/nn.png)]](https://github.com/dml-book/dml/releases/download/v0.1.10/0.1.10-final.pdf)
 .center[Безкоштовно]
   ]
 ]
