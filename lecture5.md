@@ -19,6 +19,7 @@ background-image: url(./figures/lec1/ml.png)
 .larger-x[ <p class="shadow" style="line-height: 200%;"> 
 
 🎙️ k-найближчих сусіди <br>
+🎙️ Граница рішень методу найближчих сусідів <br>
 🎙️ Неперервні міри відстані  <br> 
 🎙️ Дискретні міри відстані <br>
 🎙️ Редагування та покращення ефективності kNN <br>
@@ -101,7 +102,7 @@ class: middle
 class: blue-slide, middle, center
 count: false
 
-.larger-xx[Граница рішень методу найближчих сусідівв]
+.larger-xx[Граница рішень методу найближчих сусідів]
 
 ---
 
