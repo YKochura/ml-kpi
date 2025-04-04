@@ -18,10 +18,10 @@ background-image: url(./figures/lec1/ml.png)
 # Сьогодні
 .larger-x[ <p class="shadow" style="line-height: 200%;"> 
 
-🎙️ Навчання з учителем <br>
-🎙️ Мінімізація емпіричного ризику <br> 
-🎙️ Недонавчання vs перенавчання <br>
-🎙️ Компроміс зсуву та дисперсії <br>
+🎙️ k-найближчих сусіди <br>
+🎙️ Неперервні міри відстані  <br> 
+🎙️ Дискретні міри відстані <br>
+🎙️ Редагування та покращення ефективності kNN <br>
 </p>]
 
 ---
@@ -30,7 +30,7 @@ background-image: url(./figures/lec1/ml.png)
 class: blue-slide, middle, center
 count: false
 
-.larger-xx[k-найближчих сусідів]
+.larger-xx[k-найближчих сусіди]
 
 k-nearest neighbors (kNN)
 
@@ -238,7 +238,7 @@ class: middle
 
 ]
 
-.kol-1-3[.center.width-70[![](figures/lec5/euclidian.png)]
+.kol-1-3[.center.width-80[![](figures/lec5/euclidian.png)]
 
   ]
 ]
@@ -259,7 +259,7 @@ class: middle
 ]
 
 .kol-1-3[
-.center.width-70[![](figures/lec5/manhattan.png)]
+.center.width-80[![](figures/lec5/manhattan.png)]
 
   ]
 ]
@@ -280,7 +280,7 @@ class: middle
 ]
 
 .kol-1-3[
-.center.width-70[![](figures/lec5/chebyshev.png)]
+.center.width-80[![](figures/lec5/chebyshev.png)]
 
   ]
 ]
@@ -303,7 +303,7 @@ $$\begin{aligned}d\big(\mathbf{X}^{(a)}, \mathbf{X}^{(b)}\big) =  \bigg[\sum\_{j
 ]
 
 .kol-1-3[
-.center.width-70[![](figures/lec5/minkowski.png)]
+.center.width-80[![](figures/lec5/minkowski.png)]
 
   ]
 ]
@@ -381,15 +381,153 @@ class: middle
 
 Відстань Геммінга: 
 
-$$\begin{aligned}d\big(\mathbf{X}^{(a)}, \mathbf{X}^{(b)}\big) =  \bigg[\sum\_{j=1}^m \big(|\mathbf{X}_j^{(a)} - \mathbf{X}_j^{(b)}|\big)^p \bigg]^{\frac{1}{p}} \end{aligned}$$
+$$\begin{aligned}d\big(\mathbf{X}^{(a)}, \mathbf{X}^{(b)}\big) = \sum\_{j=1}^m \delta \big(\mathbf{X}_j^{(a)}, \mathbf{X}_j^{(b)}\big), \end{aligned}$$
+
+де $$\delta\big(\mathbf{X}_j^{(a)}, \mathbf{X}_j^{(b)}\big) = \begin{cases} 1,\;\; \text{якщо} \;\;\mathbf{X}_j^{(a)} \neq \mathbf{X}_j^{(b)} \\\\
+0, \;\; \text{якщо} \;\;\mathbf{X}_j^{(a)} = \mathbf{X}_j^{(b)} \end{cases}$$
+]
+
+.kol-1-3[
+.center.width-80[![](figures/lec5/hamming.png)]
+
+  ]
+]
+
+
+???
+Відстань Геммінга (англ. Hamming distance)  — число позицій, у яких відповідні цифри двох двійкових слів однакової довжини різні.
+
+---
+
+class: middle
+
+# Дискретні міри відстані
+
+.grid[
+.kol-2-3[
+
+Відстань Жаккара/Танімото: 
+
+$$\begin{aligned}d\big(A, B\big) = \frac{|A \cap B|}{|A \cup B|} \end{aligned}$$
+
 
 ]
 
 .kol-1-3[
-.center.width-70[![](figures/lec5/hamming.png)]
+.center.width-80[![](figures/lec5/jaccard.png)]
 
   ]
 ]
+
+
+???
+Відстань Жаккара використовується для вимірювання схожості між двома множинами.
+
+---
+
+class: middle
+
+# Дискретні міри відстані
+
+.grid[
+.kol-2-3[
+
+Косинусна відстань: 
+
+$$\begin{aligned}d\big(A, B\big) = 1 - \cos(\theta),  \end{aligned}$$
+
+де $\cos(\theta) = \frac{A \cdot B}{||A|| \cdot ||B||}$
+]
+
+.kol-1-3[
+.center.width-80[![](figures/lec5/cosin.png)]
+
+  ]
+]
+
+---
+
+class: middle
+
+# Дискретні міри відстані
+
+.grid[
+.kol-2-3[
+
+Відстань Соренсена-Дайса: 
+
+$$\begin{aligned}d\big(A, B\big) = \frac{2 |A \cap B|}{|A| + |B|} \end{aligned}$$
+]
+
+.kol-1-3[
+.center.width-80[![](figures/lec5/dice.png)]
+
+  ]
+]
+
+---
+
+class: middle
+
+# Масштабування ознак
+
+.center.width-100[![](figures/lec5/scaling.png)]
+
+.footnote[Автор: [Sebastian Raschka](https://sebastianraschka.com/)]
+
+---
+
+class: middle
+
+# k-найближчі сусіди
+
+k = 5
+
+.center.width-60[![](figures/lec5/knn.png)]
+
+.footnote[Автор: [Sebastian Raschka](https://sebastianraschka.com/)]
+
+---
+
+class: middle
+
+.center.width-100[![](figures/lec5/vote.png)]
+
+.footnote[Автор: [Sebastian Raschka](https://sebastianraschka.com/)]
+
+---
+
+class: middle
+
+# k-найближчі сусіди
+
+k = 5
+
+.center.width-60[![](figures/lec5/knn2.png)]
+
+.footnote[Автор: [Sebastian Raschka](https://sebastianraschka.com/)]
+
+---
+
+class: middle
+
+# Редагування kNN
+
+.center.width-100[![](figures/lec5/knn-editing.png)]
+
+.footnote[Автор: [Sebastian Raschka](https://sebastianraschka.com/)]
+
+---
+
+
+class: middle
+
+# Покращення ефективності прогнозування
+
+- Підібрати оптимальне значення k
+- Масштабування осей ознак
+- Вибір метрики для визначення відстані
+- Зважування міри відстані
 
 ---
 
