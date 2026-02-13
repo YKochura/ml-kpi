@@ -65,10 +65,6 @@ a:hover {
     color: #d11a01;
 }
 
-.gray {
-    color: #b6afaf;
-}
-
 .Q, .green {
     color: #009933;
 }
@@ -109,6 +105,7 @@ strong {
 }
 
 .smaller-xxx {
+
     font-size: 0.4em;
 }
 
@@ -116,12 +113,12 @@ strong {
     font-size: 20pt;
 }
 
-.larger-xs {
-    font-size: 25pt;
-}
-
 .larger-xl {
     font-size: 30pt;
+}
+
+.larger-xs {
+    font-size: 25pt;
 }
 
 .larger-xx {
@@ -282,6 +279,16 @@ td {
     width: 95%;
     display: block;
     padding: 1em;
+}
+
+.rectangle {
+    color: #035B99;
+    background-color: #D1E8E8;
+    border: 2px solid #78B0B0;
+    border-radius: 5px;
+    width: 95%;
+    display: block;
+    padding: 0.2em;
 }
 
 
@@ -504,15 +511,17 @@ td {
     border-top: solid 0px;
 }
 
-.shadow {
-    background-color: rgba(0,0,0,0.75);
-    padding: 10px;
-}
-
 .gray-t {
     color: #dcdedf;
 }
 
 .logo-im { 
     width: 50px; 
+}
+
+.divmomentum {
+    position: relative;
+    width: block;
+    height: 600px;
+    overflow: hidden;
 }
