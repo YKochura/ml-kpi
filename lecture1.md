@@ -660,19 +660,13 @@ class: middle
 Людський мозок настільки добре інтерпретує візуальну інформацію, що **розрив** між зображенням та його семантичною інтерпретацією (пікселями) важко оцінити інтуїтивно: 
 
 <br>
-.center[
-![](figures/lec1/mushroom-small.png)
-
-Це мухомор.
-]
+.center.width-20[![](figures/lec1/mushroom-small.png)]
 
 ---
 
 class: middle, center
 
-.width-70[![](figures/lec1/mushroom-big.png)]
-
-Це мухомор.
+.width-80[![](figures/lec1/mushroom-big.png)]
 
 ---
 
@@ -683,15 +677,13 @@ class: middle, center
 .width-30[![](figures/lec1/mushroom-rgb2.png)]
 
 
-Це мухомор.
-
 ---
 
 class: middle, center
 
 .width-80[![](figures/lec1/mushroom-small-nb.png)]
 
-Це мухомор.
+Зображення гриба.
 
 ---
 
@@ -1013,7 +1005,7 @@ class: middle
 class: end-slide, center
 count: false
 
-.larger-xx[Кінець]
+.larger-xxxx[🏁]
 
 ---
 

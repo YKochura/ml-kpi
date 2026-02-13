@@ -515,6 +515,11 @@ td {
     color: #dcdedf;
 }
 
+.shadow {
+    background-color: rgba(0,0,0,0.75);
+    padding: 10px;
+}
+
 .logo-im { 
     width: 50px; 
 }
